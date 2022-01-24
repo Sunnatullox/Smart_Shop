@@ -1,0 +1,100 @@
+
+{{#if orders.length}}
+         
+<div class="order">
+<div id="invoiceholder">
+  <div id="headerimage">
+  </div>
+  <div id="invoice" class="effect2">
+    <a href="/" class="btn btn-primary previous mt-2" style="margin:0 10px; 0 0"> &laquo; Back </a>
+      {{#each orders}}
+ 
+    <div id="invoice-top" class="row ">
+      {{#if user.userId.avatarUrl}}
+      <div class="col "><img class="logo" src="{{user.userId.avatarUrl}}" alt="{{user.userId.name}}"></div>
+      {{else}}
+      <div class="col "><img class="logo" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png" alt="{{user.userId.name}}"></div>
+      {{/if}}
+      <div class="col info">
+        <h4>User Name : {{user.userId.name}}</h4>
+        <p>User Email {{user.userId.email}}</p>
+      </div><!--End Info-->
+      <div class="col title">
+        <h3>Invoice #1069</h3>
+       <span class="d-flex" style="    flex-wrap: wrap;">
+          Order Date
+        <p class="date">{{date}}</p>
+       </span>
+      </div><!--End Title-->
+   
+    </div><!--End InvoiceTop-->
+      
+    <div id="invoice-bot">
+      <div id="table">
+        <table>
+          <tr class="tabletitle">
+            <td class="itemsi"><h4>Item Description</h4></td>
+            <td class="Hours"><h4>Image</h4></td>
+            <td class="Rate"><h4>Rate</h4></td>
+            <td class="subtotal"><h4>Sub-total</h4></td>
+          </tr>
+          {{#each smartPhones}}
+          <tr class="service">
+            <td class="tableitemsi"><p class="itemtext specs">{{smartPhone.descr}}</p></td>
+            <td class="tableitemsi"><img class="itemtext imjs" src="{{smartPhone.img}}" alt=""></td>
+            <td class="tableitemsi"><p class="itemtext">{{count}}</p></td>
+            <td class="tableitemsi"><p class="itemtext price">{{smartPhone.price}}</p></td>
+          </tr>
+            {{/each}}
+        
+          <tr class="tabletitle">
+            <td></td>
+            <td></td>
+            <td class="Rate"><h4></h4></td>
+            <td class="payment"><h4 class="price">{{price}}</h4></td>
+          </tr>
+          
+        </table>
+        <ol class="steps">
+  <li class="done">QC</li>
+  <li class="todo">Forward</li>
+  <li class="todo">ShortListed</li>
+  <li class="todo">Interviews</li>
+  <li class="todo">Offer</li>
+  <li class="todo">Joined</li>
+  <li class="todo">Probation</li>
+  <li class="todo">delivered</li>
+</ol>
+
+      </div><!--End Table-->
+      
+    </div><!--End InvoiceBot-->
+            {{/each}}
+  </div><!--End Invoice-->
+</div><!-- End Invoice Holder-->
+</div>
+
+{{else}}
+                    <div class="container-fluid mt-100" style="height: 70vh; ">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="cards">
+                                    <div class="card-body cart">
+                                        <div class="col-sm-12 empty-cart-cls text-center"> <img
+                                                src="https://i.imgur.com/dCdflKN.png" width="130" height="130"
+                                                class="img-fluid mb-4 mr-3">
+                                            <h3><strong>Your Cart is Empty</strong></h3>
+                                            <h4>Add something to make me happy :)</h4>
+                                             <a href="/smart"
+                                                class="btn btn-primary cart-btn-transform m-3" 
+                                                data-abc="true">
+                                                continue shopping
+                                                </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+{{/if}}

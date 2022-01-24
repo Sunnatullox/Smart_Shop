@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Samsung",
+    "price": "1000",
+    "img": "https://images.mobileshop.eu/1641546342/product-large/samsung-galaxy-s21-fe-5g-dual-sim-128gb-6gb-ram-sm-g990-grey.jpg",
+    "descr": "Samsung Galaxy S21 FE 5G Dual SIM 128GB 6GB RAM SM-G990 Grey \r\nGSM / CDMA / HSPA / EVDO / LTE / 5G\r\n2G bands:\r\nGSM 850 / 900 / 1800 / 1900 SIM 1 & SIM 2\r\n3G bands:\r\nHSDPA 850 / 900 / 1700(AWS) / 1900 / 2100\r\nSpeed:\r\nHSPA 42.2/5.76 Mbps, LTE-A (5CA) Cat19 1600/200 Mbps, 5G\r\n4G bands:\r\nLTE\r\nNetwork:\r\nSA/NSA/Sub6",
+    "id": "f255bed3-4b03-471a-9528-148202e5aeb7"
+  },
+  {
+    "title": "Xiaomi",
+    "price": "800",
+    "img": "https://images.mobileshop.eu/1638274250/product-large/xiaomi-poco-m4-pro-5g-dual-sim-128gb-6gb-ram-black.jpg",
+    "descr": "Xiaomi Poco M4 Pro 5G Dual SIM 128GB 6GB RAM Black \r\nGSM / HSPA / LTE / 5G\r\n2G bands:\r\nGSM 850 / 900 / 1800 / 1900 SIM 1 & SIM 2\r\n3G bands:\r\nHSDPA 850 / 900 / 1700(AWS) / 1900 / 2100\r\nSpeed:\r\nHSPA 42.2/5.76 Mbps, LTE-A (CA), 5G\r\n4G bands:\r\n1, 2, 3, 4, 5, 7, 8, 12, 17, 20, 28, 32, 38, 40, 41, 66\r\n5G:\r\n1, 3, 5, 7, 8, 20, 28, 38, 40, 41, 66, 77, 78 SA/NSA",
+    "id": "69b65f86-2975-4c5e-b847-af87188c7e4d"
+  },
+  {
+    "title": "Xiaomi ",
+    "price": "900",
+    "img": "https://images.mobileshop.eu/1633162588/product-large/xiaomi-11t-5g-dual-sim-128gb-8gb-ram-moonlight-white.jpg",
+    "descr": "",
+    "id": "b02efa02-3ba7-4f7f-a8e8-f97cf2034af4"
+  },
+  {
+    "title": "Samsung",
+    "price": "1500",
+    "img": "https://images.mobileshop.eu/1624607075/product-large/samsung-galaxy-tab-s7-fe-5g-64gb-4gb-ram-sm-t736-mystic-silver.jpg",
+    "descr": "Samsung Galaxy Tab S7 FE 5G 64GB 4GB RAM SM-T736 Mystic SilverGSM / HSPA / LTE / 5G\r\n2G bands:\r\nGSM 850 / 900 / 1800 / 1900\r\n3G bands:\r\nHSDPA 850 / 900 / 1700(AWS) / 1900 / 2100\r\nSpeed:\r\nHSPA 42.2/5.76 Mbps, LTE-A (CA), 5G\r\n4G bands:\r\n1, 2, 3, 4, 5, 7, 8, 12, 13, 17, 20, 25, 26, 28, 32, 38, 40, 41, 66\r\n5G:\r\n1, 3, 5, 7, 8, 20, 28, 38, 40, 41, 77, 78 SA/NSA/Sub6",
+    "id": "3f7a2d15-af28-4b59-9024-3b2b95613675"
+  }
+]

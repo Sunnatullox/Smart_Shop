@@ -1,0 +1,493 @@
+<footer class="footer bg-dark">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 text-center text-lg-left my-auto  wow zoomIn">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item">
+                        <a href="/smart">SmartPhone</a>
+                    </li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item">
+                        <a href="/add">Add SmartPhone</a>
+                    </li>
+                    <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item">
+                        <a href="/cart">Cart</a>
+                    </li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">© Smart Shop <b id="newDate"></b> <b id="newMonth"></b> <b id="newYear"></b>. All Rights Reserved.</p>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right my-auto  wow zoomIn">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3">
+                        <a href="#">
+                            <i class="fa fa-facebook fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-3">
+                        <a href="#">
+                            <i class="fa fa-twitter fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fa fa-instagram fa-2x fa-fw"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+
+
+
+<script  >
+  
+  document.getElementById("newDate").textContent = new Date().getDate()
+  document.getElementById("newMonth").textContent = new Date().getMonth()
+  document.getElementById("newYear").textContent = new Date().getFullYear() 
+
+
+
+      const nextBtn = document.querySelector("#next");
+const testimonialContainer = document.querySelector(".testimonial-container");
+const testimonialGhost = document.querySelector(".testimonial-ghost-container");
+const testimonials = [
+  {
+    name: "Matthew Perkins",
+    text:
+      "Working with John Doe was a real pleasure, he helps me extending my business online.",
+    avatar: "https://livedemo00.template-help.com/wt_prod-10943/images/testimonials-1-120x120.jpg"
+  },
+  {
+    name: "Walter Knight",
+    text:
+      "My business was broken, then i start working with Doe, and now everything works fine.",
+    avatar: "https://livedemo00.template-help.com/wt_prod-10943/images/testimonials-3-120x120.jpg"
+  },
+  {
+    name: "Roner Galle",
+    text:
+      "John Doe helps me a lot from designing my website to make it live in just 5 weeks.",
+    avatar: "https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300"
+  },
+  {
+    name: "Arthur L. Perry",
+    text:
+      "Collaborate with Doe was the best decision i ever made. He is great and professional.",
+    avatar: "https://media.creativemornings.com/uploads/user/avatar/222365/Square_Profile_250px.png"
+  }
+];
+
+let counter = 0;
+
+const handleFirstTestimonial = () => {
+  // image selection
+  testimonialContainer.children[1].children[0].src = testimonials[0].avatar;
+  // title selection
+  testimonialContainer.children[1].children[1].innerHTML = testimonials[0].name;
+  // text selection
+  testimonialContainer.children[1].children[2].innerHTML = `
+  <i class="fas fa-quote-left"></i>
+  ${testimonials[0].text}
+  <i class="fas fa-quote-right"></i>
+  `;
+};
+
+const activeTestimonial = () => {
+  testimonialContainer.classList.add("testimonial-active-animated");
+  // image selection
+  testimonialContainer.children[1].children[0].src =
+    testimonials[counter].avatar;
+  // title selection
+  testimonialContainer.children[1].children[1].innerHTML =
+    testimonials[counter].name;
+  // text selection
+  testimonialContainer.children[1].children[2].innerHTML = `<i class="fas fa-quote-left"></i>
+  ${testimonials[counter].text}
+  <i class="fas fa-quote-right"></i>`;
+
+  setTimeout(() => {
+    // Remove the active animated class
+    testimonialContainer.classList.remove("testimonial-active-animated");
+  }, 1400);
+};
+
+const inactiveTestimonial = () => {
+  testimonialGhost.classList.add("testimonial-inactive-animated");
+  let newCounter = counter;
+  if (newCounter === 0) {
+    newCounter = testimonials.length;
+  }
+  // image selection
+  testimonialGhost.children[1].children[0].src =
+    testimonials[newCounter - 1].avatar;
+  // title selection
+  testimonialGhost.children[1].children[1].innerHTML =
+    testimonials[newCounter - 1].name;
+  // text selection
+  testimonialGhost.children[1].children[2].innerHTML = `<i class="fas fa-quote-left"></i>
+  ${testimonials[newCounter - 1].text}
+  <i class="fas fa-quote-right"></i>`;
+  setTimeout(() => {
+    // Remove the active animated class
+    testimonialGhost.classList.remove("testimonial-inactive-animated");
+  }, 1400);
+};
+try{
+   nextBtn.addEventListener("click", () => {
+  if (counter === testimonials.length - 1) {
+    counter = 0;
+    inactiveTestimonial();
+    activeTestimonial();
+  } else {
+    counter++;
+    inactiveTestimonial();
+    activeTestimonial();
+  }
+});
+}catch(e){
+}
+
+
+handleFirstTestimonial();
+
+</script>
+
+<script>
+  /*===== LOGIN SHOW and HIDDEN =====*/
+const signUp = document.getElementById('sign-up'),
+    signIn = document.getElementById('sign-in'),
+    loginIn = document.getElementById('login-in'),
+    loginUp = document.getElementById('login-up')
+
+
+signUp.addEventListener('click', ()=>{
+    // Remove classes first if they exist
+    loginIn.classList.remove('block')
+    loginUp.classList.remove('none')
+
+    // Add classes
+    loginIn.classList.toggle('none')
+    loginUp.classList.toggle('block')
+})
+
+signIn.addEventListener('click', ()=>{
+    // Remove classes first if they exist
+    loginIn.classList.remove('none')
+    loginUp.classList.remove('block')
+
+    // Add classes
+    loginIn.classList.toggle('block')
+    loginUp.classList.toggle('none')
+})
+
+</script>
+
+<script src="/app.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+
+<script>
+
+
+
+
+//$(document).ready(function () {
+	////var count = 0;
+	//$("button.add-to-cart").click(function (event) {
+	//	count++;
+	//	$("a.add-to-cart").addClass("size");
+//		setTimeout(function () {
+	//		$("a.add-to-cart").addClass("hover");
+	//	}, 200);
+	//	setTimeout(function () {
+////			$("a.cart > span").addClass("counter");
+	//		$("a.cart > span.counter").text(count);
+	//	}, 400);
+	//	setTimeout(function () {
+	//		$("a.add-to-cart").removeClass("hover");
+	//		$("a.add-to-cart").removeClass("size");
+	////	}, 600);
+//	//	event.preventDefault();
+//	});
+//});
+
+
+////---- smartphone.gbs pagination ----
+  jQuery(document).ready(function () {
+
+		//Pagination JS
+		//how much items per page to show
+		var show_per_page = 12; 
+		//getting the amount of elements inside pagingBox div
+		var number_of_items = $('#pagingBox').children().size();
+		//calculate the number of pages we are going to have
+		var number_of_pages = Math.ceil(number_of_items/show_per_page);
+		
+		//set the value of our hidden input fields
+		$('#current_page').val(0);
+		$('#show_per_page').val(show_per_page);
+		
+		//now when we got all we need for the navigation let's make it '
+		
+		/* 
+		what are we going to have in the navigation?
+			- link to previous page
+			- links to specific pages
+			- link to next page
+		*/
+		var navigation_html = '<a class="previous_link" href="javascript:previous();">Prev</a>';
+		var current_link = 0;
+		while(number_of_pages > current_link){
+			navigation_html += '<a class="page_link" href="javascript:go_to_page(' + current_link +')" longdesc="' + current_link +'">'+ (current_link + 1) +'</a>';
+			current_link++;
+		}
+		navigation_html += '<a class="next_link" href="javascript:next();">Next</a>';
+		
+		$('#page_navigation').html(navigation_html);
+		
+		//add active_page class to the first page link
+		$('#page_navigation .page_link:first').addClass('active_page');
+		
+		//hide all the elements inside pagingBox div
+		$('#pagingBox').children().css('display', 'none');
+		
+		//and show the first n (show_per_page) elements
+		$('#pagingBox').children().slice(0, show_per_page).css('display', 'block');
+	
+});
+
+
+
+//Pagination JS
+
+function previous(){
+	
+	new_page = parseInt($('#current_page').val()) - 1;
+	//if there is an item before the current active link run the function
+	if($('.active_page').prev('.page_link').length==true){
+		go_to_page(new_page);
+	}
+	
+}
+
+function next(){
+	new_page = parseInt($('#current_page').val()) + 1;
+	//if there is an item after the current active link run the function
+	if($('.active_page').next('.page_link').length==true){
+		go_to_page(new_page);
+	}
+	
+}
+function go_to_page(page_num){
+	//get the number of items shown per page
+	var show_per_page = parseInt($('#show_per_page').val());
+	
+	//get the element number where to start the slice from
+	start_from = page_num * show_per_page;
+	
+	//get the element number where to end the slice
+	end_on = start_from + show_per_page;
+	
+	//hide all children elements of pagingBox div, get specific items and show them
+	$('#pagingBox').children().css('display', 'none').slice(start_from, end_on).css('display', 'block');
+	
+	/*get the page link that has longdesc attribute of the current page and add active_page class to it
+	and remove that class from previously active page link*/
+	$('.page_link[longdesc=' + page_num +']').addClass('active_page').siblings('.active_page').removeClass('active_page');
+	
+	//update the current page input field
+	$('#current_page').val(page_num);
+}
+
+
+// smartphone.gbs pagination
+
+
+///----smartphone.gbs product filters
+// Declare Variables
+var searchRes = [];
+var input, search, prevSearchRes, ul, products, product, tags, i, x, y, txtValue, checked, checkboxes;
+
+function productFilter() {
+  // Set Previous Value
+  prevSearchRes = searchRes;
+  // Get Data
+  ul = document.getElementById("pagingBox");
+  li = ul.getElementsByClassName('bounceInUp');
+  search = document.getElementById('productFilter');
+  checked = document.querySelectorAll('.checkbox:checked');
+  
+  // Pull Values Out of Search Bar
+  searchFilter = search.value.toUpperCase();
+  // Split String from search box on Spaces
+  searchRes = searchFilter.split(' ');
+  // CheckBoxes Values pushed to searchRes Array of values
+  for (y = 0; y < checked.length; y++) {
+    searchRes.push(checked[y].value.toUpperCase());
+  }
+  // Set Arrays to Strings
+  var searchLength = searchRes.toString();
+  var prevLength = prevSearchRes.toString();
+  
+  // reset filters
+  if ( searchLength < prevLength ) {
+    // if filter is shorter, reset.
+    for (x = 0; x < li.length; x++) {
+      li[x].style.display = "";
+    }
+  } 
+  
+  // Flip this on it's head, and go through the big list once, and then iterate through all the small list once.
+  //console.time();
+  // for (x = 0; x < li.length; x++) {
+  //   tags = li[x].dataset.tags;
+  //   for (i = 0; i < searchRes.length; i++) {
+  //     var filterRes = searchRes[i];
+  //     console.log(filterRes);
+  //       if (tags.toUpperCase().indexOf(filterRes) > -1) {
+  //         if (li[x].style.display === "none") {
+  //           // if array has gotten shorter 
+  //         } else {
+  //           li[x].style.display = "";
+  //         }
+  //       } else {
+  //         li[x].style.display = "none";
+  //       }
+  //     }
+  // }
+ 
+
+  
+    for (i = 0; i < searchRes.length; i++) {
+      var filterRes = searchRes[i];
+      console.log(filterRes);
+      for (x = 0; x < li.length; x++) {
+        tags = li[x].dataset.tags;
+        if (tags.toUpperCase().indexOf(filterRes) > -1) {
+          if (li[x].style.display === "none") {
+            // if array has gotten shorter 
+          } else {
+           li[x].style.display = "";
+          }
+        } else {
+          li[x].style.display = "none";
+        }
+      }
+    }
+   console.timeEnd();
+}
+
+ 
+
+
+  
+$(function () {
+        new WOW().init();
+       var target = $(this.hash);
+                target = target.length ? target : $(this.hash);
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 500);
+                    return false;
+                }                
+    });
+
+    $(window).scroll(function () {
+
+
+        var topWindow = $(window).scrollTop();
+        var topWindow = topWindow * 1.5;
+        var windowHeight = $(window).height();
+        var position = topWindow / windowHeight;
+        position = 1 - position;
+
+        $('#bottom').css('opacity', position);
+
+    });
+
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.display = "0";
+        document.body.style.backgroundColor = "white";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginRight = "0";
+        document.body.style.backgroundColor = "white";
+    }
+
+        $('.menu, .overlay').click(function () {
+        $('.menu').toggleClass('clicked');
+        $('#nav').toggleClass('show');
+    });
+</script>
+
+
+<script>
+
+
+
+  $(".nav ul li").click(function() {
+  $(this)
+    .addClass("active")
+    .siblings()
+    .removeClass("active");
+});
+
+const tabBtn = document.querySelectorAll(".nav ul li");
+const tab = document.querySelectorAll(".tab");
+
+function tabs(panelIndex) {
+  tab.forEach(function(node) {
+    node.style.display = "none";
+  });
+  tab[panelIndex].style.display = "block";
+}
+tabs(0);
+
+let bio = document.querySelector(".bio");
+const bioMore = document.querySelector("#see-more-bio");
+const bioLength = bio.innerText.length;
+
+function bioText() {
+  bio.oldText = bio.innerText;
+
+  bio.innerText = bio.innerText.substring(0, 100) + "...";
+  bio.innerHTML += `<span onclick='addLength()' id='see-more-bio'>See More</span>`;
+}
+//        console.log(bio.innerText)
+
+bioText();
+
+function addLength() {
+  bio.innerText = bio.oldText;
+  bio.innerHTML +=
+    "&nbsp;" + `<span onclick='bioText()' id='see-less-bio'>See Less</span>`;
+  document.getElementById("see-less-bio").addEventListener("click", () => {
+    document.getElementById("see-less-bio").style.display = "none";
+  });
+}
+if (document.querySelector(".alert-message").innerText > 9) {
+  document.querySelector(".alert-message").style.fontSize = ".7rem";
+}
+
+
+
+</script>

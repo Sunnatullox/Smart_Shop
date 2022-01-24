@@ -1,0 +1,141 @@
+<div class="heder_smart">
+    <h1 class="text-white">Smart Shop</h1>
+    <p></p>
+    {{#if count}}
+    <a href="/card" class="cart"><span class="counter">{{count}}</span></a>
+    {{else}}
+    <a href="/card" class="cart"><span>{{count}}</span></a>
+    {{/if}}
+</div>
+<div class="product-filter">
+    <input type="text" id="productFilter" onkeyup="productFilter()" placeholder="Search by Make, Model, Year. . .">
+</div>
+
+<div class="product-container py-5 accordion">
+    <div class="dropdown-container">
+        <label for="openDropdown" class="dropdown">
+            Category
+            <i class="fas fa-angle-down"></i>
+        </label>
+        <input type="checkbox" id="openDropdown" hidden>
+        <div class="dropdown-menus" style="padding: 1rem;" aria-labelledby="dropdownMenuButton">
+            <div class="option checkbox-wrap">
+                <label for="all" class="checkbox-label">All</label>
+                <input type="checkbox" class="checkbox active" id="all" onclick="productFilter()" value="">
+            </div>
+            <div class="option checkbox-wrap">
+                <label for="samsung" class="checkbox-label">Samsung</label>
+                <input type="checkbox" class="checkbox" id="samsung" onclick="productFilter()" value="Samsung">
+            </div>
+            <div class="option checkbox-wrap">
+                <label for="apple" class="checkbox-label">Apple</label>
+                <input type="checkbox" class="checkbox" id="apple" onclick="productFilter()" value="Iphone">
+            </div>
+            <div class="option checkbox-wrap">
+                <label for="xiaomi" class="checkbox-label">Xiaomi</label>
+                <input type="checkbox" class="checkbox" id="xiaomi" onclick="productFilter()" value="Xiaomi">
+            </div>
+            <div class="option checkbox-wrap">
+                <label for="lg" class="checkbox-label">LG</label>
+                <input type="checkbox" class="checkbox" id="lg" onclick="productFilter()" value="LG">
+            </div>
+            <div class="option checkbox-wrap">
+                <label for="Huwei" class="checkbox-label">Huwei</label>
+                <input type="checkbox" class="checkbox" id="Huwei" onclick="productFilter()" value="Huwei">
+            </div>
+            <div class="option checkbox-wrap">
+                <label for="realme" class="checkbox-label">Realme</label>
+                <input type="checkbox" class="checkbox" id="realme" onclick="productFilter()" value="Realme">
+            </div>
+            <div class="option checkbox-wrap">
+                <label for="vivo" class="checkbox-label">Vivo</label>
+                <input type="checkbox" class="checkbox" id="vivo" onclick="productFilter()" value="Vivo">
+            </div>
+            <div class="option checkbox-wrap">
+                <label for="oppo" class="checkbox-label">Oppo</label>
+                <input type="checkbox" class="checkbox" id="oppo" onclick="productFilter()" value="Oppo">
+            </div>
+            <div class="option checkbox-wrap">
+                <label for="bq" class="checkbox-label">BQ</label>
+                <input type="checkbox" class="checkbox" id="bq" onclick="productFilter()" value="BQ">
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+{{#if smartPhone.length}}
+
+<div class=" container physicianList">
+    <input type='hidden' id='current_page' />
+    <input type='hidden' id='show_per_page' />
+    <div id="pagingBox" class=" content_smartPhone py-4">
+        {{#each smartPhone}}
+        <div class="col bordershadow gal-item wow bounceInUp" data-tags="{{descr}}">
+            <div class="card h-100 shadow-sm">
+                <img src="/{{img}}" class="card-img-top" alt="{{title}}" title="{{title}}" />
+                <div class="label-top shadow-sm">
+                    <a class="text-white" href="/smart/{{id}}">{{title}}</a>
+                </div>
+                <div class="card-body">
+                    <div class="clearfix mb-3">
+                        <span class="float-start badge rounded-pill bgs-success price">{{price}}</span>
+
+                        <span style="float: right;" class="float-start"><a href="/smart/{{id}}"><i
+                                    class="fas fa-question-circle"></i></a></span>
+                        <form action="/card/snart" method="POST" class="d-grid gap-2 my-4">
+                            <input type="hidden" name="id" value="{{id}}" />
+                        <button type="submit" class="btn likeAdd add-to-cart ">
+                            <i class="far fa-heart" style="cursor: pointer"></i>
+                        </button>
+                        </form>
+                    </div>
+                    <h5 class="card-title">
+                        <a href="/smart/{{id}}" target="_blank">{{descr}}</a>
+                    </h5>
+                    <form action="/card/add" method="POST" class="d-grid gap-2 my-4">
+                        <input type="hidden" name="id" value="{{id}}" />
+                        <button type="submit" class="btn bgs-success bold-btn">add to cart</button>
+                    </form>
+                    <div class="clearfix mb-1 py-3">
+                        {{#if @root.isAuth}}
+                        <span class="float-end" style="float: right;">
+                            {{#ifeq userId._id @root.userId}}
+                            <a href="/smart/{{id}}/edit?allow=true" class="small text-muted text-uppercase aff-link">
+                                Edit
+                            </a>
+                            {{/ifeq}}
+                        </span>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div style="display: flex;     justify-content: end;" id='page_navigation'></div>
+</div>
+{{else}}
+<div class="container mt-100 ">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="cards">
+                <div class="card-body cart">
+                    <div class="col-sm-12 empty-cart-cls text-center"> <img src="https://i.imgur.com/dCdflKN.png"
+                            width="130" height="130" class="img-fluid mb-4 mr-3">
+                        <h3><strong>SmartPhone is Empty</strong></h3>
+                        <h4>Add something to make me happy :)</h4>
+                        <a href="/add" class="btn btn-primary cart-btn-transform m-3" data-abc="true">
+                            Add SmartPhone
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{{/if}}

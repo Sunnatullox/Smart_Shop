@@ -1,0 +1,13 @@
+{
+  "SmartPhones": [
+    {
+      "title": "Samsung",
+      "price": "1000",
+      "img": "https://images.mobileshop.eu/1641546342/product-large/samsung-galaxy-s21-fe-5g-dual-sim-128gb-6gb-ram-sm-g990-grey.jpg",
+      "descr": "Samsung Galaxy S21 FE 5G Dual SIM 128GB 6GB RAM SM-G990 Grey \r\nGSM / CDMA / HSPA / EVDO / LTE / 5G\r\n2G bands:\r\nGSM 850 / 900 / 1800 / 1900 SIM 1 & SIM 2\r\n3G bands:\r\nHSDPA 850 / 900 / 1700(AWS) / 1900 / 2100\r\nSpeed:\r\nHSPA 42.2/5.76 Mbps, LTE-A (5CA) Cat19 1600/200 Mbps, 5G\r\n4G bands:\r\nLTE\r\nNetwork:\r\nSA/NSA/Sub6",
+      "id": "f255bed3-4b03-471a-9528-148202e5aeb7",
+      "count": 1
+    }
+  ],
+  "price": 1000
+}

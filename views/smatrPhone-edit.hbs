@@ -1,0 +1,27 @@
+<h1>Edit SmartPhone {{smartPhone.title}}</h1>
+
+<form action="/smart/edit" method="POST" class="shadow p-5 mb-2 bg-white rounded" enctype="multipart/form-data" novalidate>
+    <a href="/smart" class="btn btn-primary previous" style="margin:0 10px  1.5rem 0 ; "> &laquo; Back </a>
+    <div class="form-floating">
+        <label for="title">SmartPhone Model</label>
+        <input type="text" name="title" placeholder="Iphone" id="title" class="form-control" required value="{{smartPhone.title}}">
+    </div>
+    <div class="form-floating">
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price" placeholder="200 $" class="form-control" required value="{{smartPhone.price}}">
+    </div>
+    <div class="form-floating">
+        <label for="img">Product Image</label>
+        <input type="file" name="img" id="img" class="form-control" required value="{{smartPhone.img}}">
+    </div>
+    <div class="form-floating">
+        <label for="descr">Description</label>
+        <input type="text" name="descr" id="disc" class="form-control" placeholder="Iphone 13 pro ....." required value="{{smartPhone.descr}}" />
+    </div>
+    <input type="hidden" name="id" value="{{smartPhone.id}}" />
+    <button class="btn btn-primary mt-3">Edit SmartPhone</button>
+</form>
+<form action="/smart/remove" method="POST">
+    <input type="hidden" name="id" value="{{smartPhone.id}}">
+    <button class="btn btn-danger ml-5">Remove SmartPhone</button>
+</form>

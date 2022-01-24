@@ -1,0 +1,23 @@
+<h1>Add new SmartPhone</h1>
+<form action="/add" method="POST" class="shadow p-5 mb-2 bg-white rounded" enctype="multipart/form-data"  novalidate>
+    {{#if error}}
+    <p class="alert">{{error}}</p>
+    {{/if}}
+    <div class="form-floating">
+        <label for="title">SmartPhone Model</label>
+        <input type="text" name="title" id="title"placeholder="Iphone"  class="form-control" required >
+    </div>
+    <div class="form-floating mt-3">
+        <label for="price">Price</label>
+        <input type="number" name="price" placeholder="200 $" id="price" class="form-control" required >
+    </div>
+    <div class="custom-file py-3">
+        <label for="img">Product Images</label>
+            <input type="file" placeholder="Image.jog" name="imgs" id="img" class="form-control" required>
+    </div>
+    <div class="form-floating mt-4">
+        <label for="disc">Description</label>
+        <textarea type="text" name="descr" id="disc"  placeholder="Iphone 13 pro ....." class="form-control" required ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Add SmartPhone</button>
+</form>

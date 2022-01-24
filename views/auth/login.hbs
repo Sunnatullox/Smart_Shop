@@ -1,0 +1,72 @@
+<div class="logins">
+    <div class="login__content">
+        <div class="login__img">
+            <img src="https://raw.githubusercontent.com/bedimcode/responsive-login-signin-signup/b3c2eaa19d76624092bd606d28fbd616d539de92/assets/img/img-login.svg"
+                alt="">
+        </div>
+
+        <div class="login__forms">
+            <form action="/auth/login" method="POST" class="login__registre" id="login-in">
+                <h1 class="login__title">Sign In</h1>
+
+                {{#if LoginError}}
+                    <p class="alert">{{LoginError}}</p>
+                {{/if}}
+                {{#if RegisterError}}
+                <p class="alert">{{RegisterError}}</p>
+                {{/if}}
+                <div class="login__box">
+                    <i class='bx bx-user login__icon'></i>
+                    <input type="email" name="email" placeholder="Username" class="login__input" required>
+                </div>
+
+                <div class="login__box">
+                    <i class='bx bx-lock-alt login__icon'></i>
+                    <input type="password" name="password" placeholder="Password" class="login__input" required>
+                </div>
+
+                <a href="#" class="login__forgot">Forgot password?</a>
+
+                <button type="submit" class="login__button">Sign In</button>
+
+                <div>
+                    <span class="login__account">Don't have an Account ?</span>
+                    <span class="login__signin" id="sign-up">Sign Up</span>
+                </div>
+            </form>
+
+            <form action="/auth/register" method="POST" class="login__create none" id="login-up" novalidate>
+                <h1 class="login__title">Create Account</h1>
+                
+                {{#if RegisterError}}
+                <p class="alert">{{RegisterError}}</p>
+                {{/if}}
+                <div class="login__box">
+                    <i class='bx bx-user login__icon'></i>
+                    <input type="text" name="name" placeholder="Username" class="login__input" required>
+                </div>
+
+                <div class="login__box">
+                    <i class='bx bx-at login__icon'></i>
+                    <input type="email" name="email" placeholder="Email" class="login__input" required>
+                </div>
+
+                <div class="login__box">
+                    <i class='bx bx-lock-alt login__icon'></i>
+                    <input type="password" name="password" placeholder="Password" class="login__input" required>
+                </div>
+                <div class="login__box">
+                    <i class='bx bx-lock-alt login__icon'></i>
+                    <input type="password" name="confirm" placeholder="Confirm Password" class="login__input" required>
+                </div>
+
+                <button type="submit" class="login__button">Sign Up</button>
+
+                <div>
+                    <span class="login__account">Already have an Account ?</span>
+                    <span class="login__signup" id="sign-in">Sign In</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
