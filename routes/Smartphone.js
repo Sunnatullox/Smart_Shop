@@ -4,6 +4,11 @@ const Auth = require("../middleware/auth");
 const router = Router();
 
 
+function computePrice(smartPhones) {
+  return smartPhones.reduce((total, smartPhone) => {
+    return (total += smartPhone.count);
+  }, 0);
+}
 
 function mapCart(cart) {
   return cart.items.map((c) => ({
@@ -14,18 +19,15 @@ function mapCart(cart) {
 }
 
 
-function computePrice(user) {
-  return user.reduce((count, user) => {
-    return (count += user.count);
-  }, 0);
-}
+
+
 
 router.get("/", async (req, res) => {
   try{
     const smartPhone = await Smartphone.find()
-    .populate("userId", "email name")
-    .select("price title img descr ");
-    const user = await req.user.populate("cart.items.SmartPhoneId");
+      .populate("userId", "email name")
+      .select("price title img descr ");
+      const user = await req.user.populate("cart.items.SmartPhoneId");
       const smartPhones = mapCart(user.cart);
     res.render("Smartphones", {
       title: "Smartphones",

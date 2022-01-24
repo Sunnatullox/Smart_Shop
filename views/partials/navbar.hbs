@@ -11,13 +11,13 @@
 				{{else}}
 				<h3><a href="/"><i class="fas fa-home"></i> Home</a></h3>
 				{{/if}}
+				{{!-- registerdan o'tilgandan keyin ko'rsatiladigan menular --}}
+				{{#if isAuth}}
 				{{#if isPhone}}
 					<h3 class="active"><a href="/smart"><i class="fas fa-mobile-alt"></i> Smartphone</a></h3>
 				{{else}}
 					<h3><a href="/smart"><i class="fas fa-mobile-alt"></i> Smartphone</a></h3>
 				{{/if}}
-				{{!-- registerdan o'tilgandan keyin ko'rsatiladigan menular --}}
-				{{#if isAuth}}
 
 				{{#if isAdd}}
 				<h3 class="active"><a href="/add"><i class="fas fa-puzzle-piece"></i> Add Smartphone</a></h3>

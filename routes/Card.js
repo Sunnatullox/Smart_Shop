@@ -11,7 +11,6 @@ function mapCart(cart) {
   }));
 }
 
-
 function computePrice(smartPhones) {
   return smartPhones.reduce((total, smartPhone) => {
     return (total += smartPhone.price * smartPhone.count);
@@ -23,11 +22,15 @@ router.post("/add", Auth, async (req, res) => {
   await req.user.addToCart(smartPhone);
   res.redirect("/card");
 });
-router.post("/snart", Auth, async (req, res) => {
+
+router.post("/smart", Auth, async (req, res) => {
   const smartPhone = await SmartPhone.findById(req.body.id);
   await req.user.addToCart(smartPhone);
   res.redirect("/smart");
 });
+
+
+
 
 router.delete("/remove/:id", Auth, async (req, res) => {
   await req.user.removeFromCart(req.params.id);
@@ -44,13 +47,11 @@ router.delete("/remove/:id", Auth, async (req, res) => {
 router.get("/",Auth, async (req, res) => {
   const user = await req.user.populate("cart.items.SmartPhoneId");
   const smartPhones = mapCart(user.cart);
- 
   res.render("card", {
     title: "Cart Phones",
     isCard: true,
     smartPhones: smartPhones,
     price: computePrice(smartPhones),
-
   });
 });
 

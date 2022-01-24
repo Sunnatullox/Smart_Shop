@@ -18,6 +18,10 @@
       <div class="col info">
         <h4>User Name : {{user.userId.name}}</h4>
         <p>User Email {{user.userId.email}}</p>
+        {{#if user.userId.Telnumber}}
+        <p>User Number {{user.userId.Telnumber}}</p>
+        {{else}}
+        {{/if}}
       </div><!--End Info-->
       <div class="col title">
         <h3>Invoice #1069</h3>
