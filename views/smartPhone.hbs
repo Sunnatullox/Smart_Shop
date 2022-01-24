@@ -78,16 +78,17 @@
                                     <input type="hidden" name="id" value="{{id}}" />
                                     <button type="submit" class="btn bgs-success bold-btn">add to cart</button>
                                 </form>
-                                <div class="clearfix mb-1">
-                                    <span class="float-start"><a href="#"><i
-                                                class="fas fa-question-circle"></i></a></span>
-                                    <span class="float-end">
-                                        <i class="far fa-heart" style="cursor: pointer"></i>
+                                <div class="clearfix mb-1 py-3">
+                                    {{#if @root.isAuth}}
+                                    <span class="float-end" style="float: right;">
+                                        {{#ifeq userId._id @root.userId}}
+                                        <a href="/smart/{{id}}/edit?allow=true"
+                                            class="small text-muted text-uppercase aff-link">
+                                            Edit
+                                        </a>
+                                        {{/ifeq}}
                                     </span>
-                                    <span class="float-end" style="float: right;"><a
-                                            href="/smart/{{id}}/edit?allow=true"
-                                            class="small text-muted text-uppercase aff-link">Edit</a>
-                                    </span>
+                                    {{/if}}
                                 </div>
                             </div>
                         </div>
@@ -95,6 +96,6 @@
                     {{/each}}
                     {{/if}}
                 </div>
-                <div style="display: flex;justify-content: end; padding: 5rem 0" id='page_navigation' ></div>
+                <div style="display: flex;justify-content: end; padding: 5rem 0" id='page_navigation'></div>
             </div>
         </div>
