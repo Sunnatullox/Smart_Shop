@@ -56,7 +56,6 @@ app.use(
 app.use(
   fileMiddleware.fields([
     { name: "avatar", maxCount: 1 },
-    { name: "img", maxCount: 1 },
     { name: "imgs", maxCount: 1 },
   ])
 );

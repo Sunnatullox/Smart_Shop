@@ -12,15 +12,13 @@ router.get("/", Auth,(req, res) => {
 router.post("/",  Auth, addSmartPhoneValidator , async (req, res) => {
   try{
     const errors = validationResult(req);
-    const image = req.files.img[0].path 
-    console.log(image);
     if (!errors.isEmpty()){
       return res.status(422).render("Add", 
       { title: "Add Phone", isAdd: true, error: errors.array()[0].msg, data:{
         title:req.body.title,
         price:req.body.price,
         descr:req.body.descr,
-        img:image,
+        img:req.files.imgs[0].path,
       } });
     }
   }catch(e){
@@ -31,10 +29,8 @@ router.post("/",  Auth, addSmartPhoneValidator , async (req, res) => {
     price: req.body.price,
     descr: req.body.descr,
     userId: req.user._id,
+    img:req.files.imgs[0].path
   });
-if(req.files){
-  smartphone.img = req.files.img[0].path
-}
   try{
     await smartphone.save();
     res.redirect("/smart");
@@ -44,3 +40,4 @@ if(req.files){
 });
 
 module.exports = router;
+
